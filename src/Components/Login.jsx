@@ -1,39 +1,39 @@
 import { useState } from "react"
 import { auth } from "./firebase"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
-import { create } from "lodash"
+// import { create } from "lodash"
 
 export const Login = () => {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
-    const [validPassword, setValidPassword] = useState(true)
+    const [email ] = useState('')
+    const [password ] = useState('')
+    // const [ setError] = useState('')
+    // const [validPassword, setValidPassword] = useState(true)
 
-    const validatePassword = () => {
-        if(password !== '') {
-            setValidPassword(!validPassword)
-            setError('Password can not be empty!')
-        }
-        return validPassword
-    }
+    // const validatePassword = () => {
+    //     if(password !== '') {
+    //         setValidPassword(!validPassword)
+    //         setError('Password can not be empty!')
+    //     }
+    //     return validPassword
+    // }
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
+            // const user = userCredential.user;
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+            // const errorCode = error.code;
+            // const errorMessage = error.message;
         })
 
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) =>{
-            const user = userCredential.user;
+            // const user = userCredential.user;
         })
         .catch(err => {
-            const errorCode = err.code;
-            const errorMessage = err.message;
+            // const errorCode = err.code;
+            // const errorMessage = err.message;
         });
 
 
